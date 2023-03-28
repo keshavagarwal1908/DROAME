@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% layout("layouts/boilerplate") %>
+  <h1>ALL DRONES</h1>
+  <%for(let drone of drones){ %>
+  <div class="card" mb-3>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="<%=drone.image%>" alt="" class="img-fluid" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%=drone.name%></h5>
+          <p class="card-text"><%=drone.type%></p>
+          <p class="card-text">
+            <small class="text-muted"><%=drone.location%></small>
+          </p>
+          <a class="btn btn-primary" href="/drones/<%=drone._id %>"
+            >View <%=drone.name%></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <%} %>
+
+  <footer>
+    <a href="/drones/new">ADD DRONE</a>
+  </footer>
+</html>

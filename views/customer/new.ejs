@@ -1,0 +1,58 @@
+<%layout("layouts/boilerplate") %>
+<!---->
+<div class="row">
+  <h1 class="text-center">NEW BOOKING</h1>
+  <div class="col-6 offset-3">
+    <form action="/drones/<%=drone._id%>/customers" method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="title">Name</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="customer[name]"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="customer[location]"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="phone">Phone</label>
+        <input
+          class="form-control"
+          type="text"
+          id="phone"
+          name="customer[phone]"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input
+          class="form-control"
+          type="text"
+          id="email"
+          name="customer[email]"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="date">Booking Date</label>
+        <input
+          class="form-control"
+          type="text"
+          id="date"
+          name="customer[bookingdate]"
+        />
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-success">BOOK DRONE</button>
+      </div>
+    </form>
+  </div>
+</div>

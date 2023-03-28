@@ -1,0 +1,67 @@
+<%layout("layouts/boilerplate") %>
+<div class="row">
+  <div class="col-6">
+    <div class="card mb-3">
+      <img src="<%=drone.image%>" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title"><%=drone.name %></h5>
+        <p class="card-text"><%=drone.type%></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-muted">
+          BOOKING LOCATION:<%=drone.location%>
+        </li>
+        <li class="list-group-item">$<%=drone.price%>/booking</li>
+        <li class="list-group-item">BOOKED ON:<%=drone.date %></li>
+      </ul>
+      <div class="card-body">
+        <a href="/drones/<%=drone._id %>/edit" class="card-link btn btn-info"
+          >Edit Details</a
+        >
+        <form
+          class="d-inline"
+          action="/drones/<%=drone._id%>?_method=DELETE"
+          method="POST"
+        >
+          <a
+            href="/drones/<%=drone._id %>/customers/new"
+            class="card-link btn btn-info"
+            >BOOK DRONE</a
+          >
+          <button class="btn btn-danger">DELETE</button>
+        </form>
+      </div>
+      <div class="card-footer text muted">2 days ago</div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <%for(let customer of drone.customers){%>
+
+    <div class="card mb-3">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name:<%=customer.name %></li>
+        <li class="list-group-item">Booking Id:<%=customer._id %></li>
+        <li class="list-group-item">Location:<%=customer.location%></li>
+        <li class="list-group-item">Email:<%=customer.email%></li>
+        <li class="list-group-item">Phone:<%=customer.phone%></li>
+        <li class="list-group-item">Booking Date:<%=customer.bookingdate%></li>
+      </ul>
+      <div class="card-footer">
+        <a
+          href="/drones/<%=drone._id%>/customers/<%=customer._id%>/edit"
+          class="card-link btn btn-info"
+          >Edit Booking</a
+        >
+        <form
+          class="d-inline"
+          action="/drones/<%=drone._id%>/customers/<%=customer._id%>?_method=DELETE"
+          method="POST"
+        >
+          <button class="btn btn-danger">DELETE BOOKING</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%}%>
+</div>
