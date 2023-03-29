@@ -9,10 +9,10 @@ const Drone = require("./models/droneschema");
 const Customer = require("./models/customerSchema");
 const methodOverride = require("method-override"); //TO ENABLE PUT OR PATCH REQUEST THROUGH FORMS
 const ejsMate = require("ejs-mate");
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.DB_URL||"mongodb://127.0.0.1:27017/DROAME";
 mongoose.set("strictQuery", false);
 mongoose
-  .connect("mongodb://127.0.0.1:27017/DROAME", {
+  .connect(dbUrl, {
     //useNewUrlParser: true,
     // useCreateIndex: true,
     ////// useUnifiedTopology: true,
